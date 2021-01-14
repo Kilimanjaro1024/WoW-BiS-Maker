@@ -2,12 +2,12 @@
 
 ## Project Links
 
-- [add your github repo link]()
-- [add your deployment link]()
+- [add your github repo link](https://github.com/Kilimanjaro1024/Project2)
+- [add your deployment link](https://6000b6ee7c353b00073c2f80--laughing-allen-42e69b.netlify.app/)
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This app is a psuedo-companion app for World of Warcraft. This app will be focused around creating templates or plans for what you want to achieve in WoW such as finding what items you want and saving them to a BiS(best in slot) list and viewing your characters currently equiped items and stats. When playing it can be easy to get lost in all the things you have to do so this App is intended as a resource that you can look at to remind yourself whats higher on your priorites list.
 
 ## API
 
