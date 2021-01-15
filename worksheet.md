@@ -11,11 +11,33 @@ This app is a psuedo-companion app for World of Warcraft. This app will be focus
 
 ## API
 
-Use this section to include info about the API you have chosen and a code snippet of the data that it returns and is required for your project. 
+The World of Warcraft APIs allow you to pull information from the games files from items and achievements to characters and profiles. 
 
 
 ```
-{data: {} }
+{{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/covenant/?namespace=static-9.0.2_36532-us"
+    }
+  },
+  "covenants": [
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/covenant/1?namespace=static-9.0.2_36532-us"
+      },
+      "name": "Kyrian",
+      "id": 1
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/covenant/2?namespace=static-9.0.2_36532-us"
+      },
+      "name": "Venthyr",
+      "id": 2
+    },
+	...
+	}
 ```
 
 
@@ -23,8 +45,10 @@ Use this section to include info about the API you have chosen and a code snippe
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
-- [add link to your wireframes]()
-- [add link to your react architecture]()
+- [Mobile](https://imgur.com/a/k5OYAdl)
+- [Tablet](https://imgur.com/a/BUP1ECF)
+- [Desktop](https://imgur.com/XnGzMZc)
+- [React Architecture](https://imgur.com/a/oA8hnAh)
 
 
 ### MVP/PostMVP - 5min
@@ -32,13 +56,30 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP EXAMPLE
-- Find and use external api 
-- Render data on page 
-- Allow user to interact with the page
+- Set up file structur
+	-	Main Page
+	-	Bis List Page
+	-	Item Search Page 
+- Create Nav 
+- Creat Detail Item Panel
+- Create Item Search Page
+	-	Search Form
+	-	Item Panel Div
+	-	Link Detail Item Panel
+	-	Selected Item Pop-up (Mobile)
+- Create Bis List Page
+	-	Add Items to List
+	-	Render List
+	-	Link Detail Item Panel
+	-	Create Stats Total Div
+- Style with Scss or Sass
 
 #### PostMVP EXAMPLE
 
-- Add localStorage or firebase for storage
+- Render Character modle on BiS List screen
+- Add Character search page
+- Add Character Favorites list
+- Create BiS lists tied to a specific class or spec
 
 ## Components
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
@@ -49,19 +90,44 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | --- | :---: |  
 | App | This will make the initial data pull and include React Router| 
 | Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
+| Search Form | Allow the user to search for items based on name class and slot |
+| Item Div | This will render a panel for an item that fits the search terms |
+| Detail Item Panel | This will render the full details of a selected item  and add it to the bis list |
+| Bis List Div | This will render all the items in your bis list |
+| Item Pop-up Div | This will render the full item details when in mobile |
+| Stats Total Div | This will render the stat totals of your bis list |
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
 
+## MVP
+
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Make Pages | H | 2hrs| hr | hr |
+| Set Up API Calls | H | 3hrs| hr | hr |
+| Search Form | H | 2hrs| hr | hr |
+| Item Div | M | 3hrs| hr | hr |
+| Detail Item Div | M | 3hrs| hr | hr |
+| Item Pop-up Div | M | 3hrs| hr | hr |
+| Bis List Div | M | 3hrs| hr | hr |
+| Stats Total Div | L | 3hrs| hr | hr |
+| Styling | H | 6hrs| hr | hr |
+| Total | H | 28hrs| hrs | hrs |
+
+## Post MVP
+
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Render Character Modles | L | 4hrs| hr | hr |
+| Character Search Page | H | 4hrs| hr | hr |
+| Character Favorites List | M | 4hrs| hr | hr |
+| Class Specific Bis List | M | 4hrs| hr | hr |
+| Total | H | 16hrs| hrs | hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+ - Scss
+ - React Bootstrap
 
 ## Code Snippet
 
