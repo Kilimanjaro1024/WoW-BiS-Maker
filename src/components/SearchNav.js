@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 
 const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
-    const [name, setName] = React.useState(null)
-    const [type, setType] = React.useState(null)
-    const [slot, setSlot] = React.useState(null)
+    const [name, setName] = React.useState("")
+    const [type, setType] = React.useState("")
+    const [slot, setSlot] = React.useState("")
     const handleNameChange = (e) =>{
         setName(e.target.value)
         console.log(e.target.value)
@@ -27,6 +27,7 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
         setSearchType(type)
         setSearchSlot(slot)      
     }
+    console.log(type)
     return (
         <div className="nav">
         <form>
@@ -50,7 +51,7 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
                 id="types" 
                 name="types"
                 onChange={handleSlotChange}>
-                    <option value=""></option>
+                    <option value={null}></option>
                     <option value="HEAD">Head</option>
                     <option value="NECK">Neck</option>
                     <option value="SHOULDER">Shoulder</option>

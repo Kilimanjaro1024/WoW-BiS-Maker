@@ -16,22 +16,22 @@ const ItemList = ({searchName, searchType}) => {
 
     React.useEffect(() =>{        
         getItems()
-        console.log(searchName)
+        // console.log(searchName)
     }, [url])
 
     const loaded = () =>{
-        console.log(items.results)
+        // console.log(items.results)
         const typeArr = []
         //checks if an armor type has been chosen and filters out items that do not match that name.
-        if(searchType !== null){
+        if(searchType !== ""){
             for (let i = 0; i < items.results.length; i++) {
                 if(items.results[i].data.item_subclass.name.en_US === searchType){
                     typeArr.push(items.results[i])
-                    console.log(items.results[i].data.name.en_US)
+                    // console.log(items.results[i].data.name.en_US)
                 }
                 
             }
-            console.log(typeArr)
+            // console.log(typeArr)
     
             return(
                 <div>
@@ -47,10 +47,11 @@ const ItemList = ({searchName, searchType}) => {
             )
         }
         //returns all items that match the search name
-        else{
+        else {
             return(
                 <div>
                     {items.results.map((items) =>{
+                        console.log(items)
                         return(
                             <>
                                 <h1>Name: {items.data.name.en_US}</h1>
