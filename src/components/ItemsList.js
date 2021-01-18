@@ -19,10 +19,10 @@ const ItemList = ({searchName, searchType}) => {
         console.log(searchName)
     }, [url])
 
-
     const loaded = () =>{
         console.log(items.results)
         const typeArr = []
+        //checks if an armor type has been chosen and filters out items that do not match that name.
         if(searchType !== null){
             for (let i = 0; i < items.results.length; i++) {
                 if(items.results[i].data.item_subclass.name.en_US === searchType){
@@ -46,6 +46,7 @@ const ItemList = ({searchName, searchType}) => {
                 </div>
             )
         }
+        //returns all items that match the search name
         else{
             return(
                 <div>

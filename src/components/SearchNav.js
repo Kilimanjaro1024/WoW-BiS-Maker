@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 
-const SearchNav = ({setSearchName, setSearchType}) => {
+const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
     const [name, setName] = React.useState(null)
     const [type, setType] = React.useState(null)
+    const [slot, setSlot] = React.useState(null)
     const handleNameChange = (e) =>{
         setName(e.target.value)
         console.log(e.target.value)
@@ -15,10 +16,16 @@ const SearchNav = ({setSearchName, setSearchType}) => {
         console.log(e.target.value)
     }
 
+    const handleSlotChange = (e) =>{
+        setSlot(e.target.value)
+        console.log(e.target.value)
+    }
+
     const handleClick = (e) => {
         e.preventDefault()
         setSearchName(name)
-        setSearchType(type)      
+        setSearchType(type)
+        setSearchSlot(slot)      
     }
     return (
         <div className="nav">
@@ -39,11 +46,25 @@ const SearchNav = ({setSearchName, setSearchType}) => {
                 <option value="Leather">Leather</option>
                 <option value="Cloth">Cloth</option>
             </select>
-            <input 
-                type="text" 
-                name="islot" 
-                placeholder="Item Slot">
-            </input>
+            <select 
+                id="types" 
+                name="types"
+                onChange={handleSlotChange}>
+                    <option value=""></option>
+                    <option value="HEAD">Head</option>
+                    <option value="NECK">Neck</option>
+                    <option value="SHOULDER">Shoulder</option>
+                    <option value="CLOAK">Cloak</option>
+                    <option value="CHEST">Chest</option>
+                    <option value="WRIST">Wrist</option>
+                    <option value="GLOVE">Glove</option>
+                    <option value="WAIST">Waist</option>
+                    <option value="LEGS">Legs</option>
+                    <option value="FEET">Feet</option>
+                    <option value="TRINKET">Trinket</option>
+                    <option value="FINGER">Finger</option>
+                    <option value="WEAPON">Weapon</option>
+            </select>
             
             <input
                 type="Submit"
