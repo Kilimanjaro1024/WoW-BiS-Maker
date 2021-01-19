@@ -2,9 +2,9 @@ import React from "react";
 import Item from "./Item.js"
 import { Link } from "react-router-dom";
 
-const ItemList = ({searchName, searchType, searchSlot}) => {
-   
-    const accessToken = "UStLjWOnrdAmZ0VkWi6tMtLifEZsvbw4E5"
+const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, accessToken}) => {
+    // console.log(bisList)
+    
     const url = `https://us.api.blizzard.com/data/wow/search/item?namespace=static-us&locale=en_US&name.en_US=${searchName}&orderby=id&_page=1&access_token=${accessToken}`
 
     const [items, setItems] = React.useState(null)
@@ -67,7 +67,7 @@ const ItemList = ({searchName, searchType, searchSlot}) => {
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken}/>
+                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
                             </>
                         )         
                     })}
@@ -83,7 +83,7 @@ const ItemList = ({searchName, searchType, searchSlot}) => {
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken}/>
+                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
                             </>
                         )         
                     })}
@@ -99,7 +99,7 @@ const ItemList = ({searchName, searchType, searchSlot}) => {
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken}/>
+                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
                             </>
                         )         
                     })}
@@ -113,7 +113,7 @@ const ItemList = ({searchName, searchType, searchSlot}) => {
                                 console.log(item)
                                 return(
                                     <>
-                                        <Item item={item.data} accessToken={accessToken}/>
+                                        <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
                                     </>
                                 )         
                             })}

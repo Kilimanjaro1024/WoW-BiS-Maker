@@ -1,7 +1,8 @@
 import React from "react";
+import BisListComp from "../components/BisListComp.js"
 
-const BisList = (props) => {
-  return <h1>This is the Bis List Component</h1>;
+const BisList = ({bisList, setBisList, accessToken}) => {
+  return <BisListComp bisList={bisList} setBisList={setBisList} accessToken={accessToken}/>;
 };
 
 export default BisList;

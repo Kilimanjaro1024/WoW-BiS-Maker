@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({item, accessToken}) => {
+const Item = ({item, accessToken, setBisList, bisList}) => {
+    // console.log(bisList)
     const iconUrl = `https://us.api.blizzard.com/data/wow/media/item/${item.media.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
     const itemUrl = `https://us.api.blizzard.com/data/wow/item/${item.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
 
@@ -24,9 +25,14 @@ const Item = ({item, accessToken}) => {
         getItemDetails()
     }, [iconUrl,itemUrl])
 
+    const addToBisList = () =>{
+        setBisList(bisList =>[...bisList, item])
+        console.log(bisList)
+    }
+
     const loaded = () =>{
-        if(itemDetails !== null){
-            console.log(itemDetails.preview_item)
+        if(itemDetails !== null && itemDetails.preview_item.stats !== undefined){
+            // console.log(itemDetails.preview_item)
             return(
                 <div>
                     <img src={icon.assets[0].value} alt=""></img>
@@ -37,7 +43,7 @@ const Item = ({item, accessToken}) => {
                             return <h2>{stat.type.name}: {stat.value}</h2>   
                         })} 
                     </div>
-                    
+                    <button onClick={addToBisList}>+</button>    
                 </div>
             )
         }
