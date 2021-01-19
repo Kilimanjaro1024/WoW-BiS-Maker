@@ -34,11 +34,11 @@ const Item = ({item, accessToken, setBisList, bisList}) => {
         if(itemDetails !== null && itemDetails.preview_item.stats !== undefined){
             // console.log(itemDetails.preview_item)
             return(
-                <div>
+                <div className="item">
                     <img src={icon.assets[0].value} alt=""></img>
                     <h1>Name: {item.name.en_US}</h1>
                     <h1>Type: {item.item_subclass.name.en_US}</h1>
-                    <div>                        
+                    <div className="item_stats">                        
                         {itemDetails.preview_item.stats.map((stat) =>{
                             return <h2>{stat.type.name}: {stat.value}</h2>   
                         })} 

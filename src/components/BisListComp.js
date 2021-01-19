@@ -1,18 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BisList from "../pages/BisList";
-import BisItem from "./BisItem"
+import Item from "./Item"
 
 const BisListComp = ({bisList, setBisList, accessToken}) => {
     console.log(bisList)
     return (
         <div>
             {bisList.map((bisItem) =>{
-                console.log(bisItem);
-                
-                return <BisItem bisItem={bisItem} setBisList={setBisList} accessToken={accessToken}/>
-                
-                // </BisItem>
+                return <Item item={bisItem} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
             })}
             
         </div>
