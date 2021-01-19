@@ -15,10 +15,9 @@ function App() {
         <Route exact path="/">
           <Main/>
         </Route>
-          <Route exact path="/ItemSearch">
-            <ItemSearch/>
-          </Route>
-        
+        <Route exact path="/ItemSearch">
+          <ItemSearch/>
+        </Route> 
         <Route exact path="/BisList">
           <BisList/>
         </Route>

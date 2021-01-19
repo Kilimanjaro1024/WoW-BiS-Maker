@@ -1,9 +1,10 @@
 import React from "react";
+import Item from "./Item.js"
 import { Link } from "react-router-dom";
 
-const ItemList = ({searchName, searchType}) => {
+const ItemList = ({searchName, searchType, searchSlot}) => {
    
-    const accessToken = "USzM03l15osK38j64TWwBiVR5yOQPwj6Ao"
+    const accessToken = "UStLjWOnrdAmZ0VkWi6tMtLifEZsvbw4E5"
     const url = `https://us.api.blizzard.com/data/wow/search/item?namespace=static-us&locale=en_US&name.en_US=${searchName}&orderby=id&_page=1&access_token=${accessToken}`
 
     const [items, setItems] = React.useState(null)
@@ -19,49 +20,111 @@ const ItemList = ({searchName, searchType}) => {
         // console.log(searchName)
     }, [url])
 
-    const loaded = () =>{
-        // console.log(items.results)
-        const typeArr = []
-        //checks if an armor type has been chosen and filters out items that do not match that name.
+    const sortBySlot = (typeArr) =>{
+        if(searchSlot !== ""){
+            for (let i = 0; i < items.results.length; i++) {
+                if(items.results[i].data.inventory_type.type === searchSlot){
+                    typeArr.push(items.results[i])
+                }
+            }
+        }
+    }
+
+    const sortByType = (typeArr) =>{
         if(searchType !== ""){
             for (let i = 0; i < items.results.length; i++) {
                 if(items.results[i].data.item_subclass.name.en_US === searchType){
                     typeArr.push(items.results[i])
-                    // console.log(items.results[i].data.name.en_US)
-                }
-                
+                }                    
             }
-            // console.log(typeArr)
-    
+        }
+    }
+
+    const sortByTypeAndSlot = (typeArr) =>{
+        if(searchType !== "" && searchSlot !== ""){
+            for (let i = 0; i < items.results.length; i++) {
+                if(items.results[i].data.item_subclass.name.en_US === searchType){
+                    if(items.results[i].data.inventory_type.type === searchSlot){
+                        typeArr.push(items.results[i])
+                    }
+                                            
+                }
+            }
+        }    
+    }
+
+    const loaded = () =>{
+        // console.log(items.results)
+        const typeArr = []
+
+        //checks if an armor type has been chosen and filters out items that do not match that name.
+        
+        if(searchType !== "" && searchSlot !== ""){
+            sortByTypeAndSlot(typeArr)
             return(
                 <div>
-                    {typeArr.map((items) =>{
+                    {typeArr.map((item) =>{
+                        // console.log(items)
                         return(
                             <>
-                                <h1>Name: {items.data.name.en_US}</h1>
-                                <h1>Type: {items.data.item_subclass.name.en_US}</h1>
+                                <Item item={item.data} accessToken={accessToken}/>
                             </>
                         )         
                     })}
                 </div>
             )
         }
+        else if(searchType !== "" && searchSlot === "")
+        {
+            sortByType(typeArr)
+            return(
+                <div>
+                    {typeArr.map((item) =>{
+                        // console.log(items)
+                        return(
+                            <>
+                                <Item item={item.data} accessToken={accessToken}/>
+                            </>
+                        )         
+                    })}
+                </div>
+            )
+        }
+        else if(searchType === "" && searchSlot !== "")
+        {
+            sortBySlot(typeArr)
+            return(
+                <div>
+                    {typeArr.map((item) =>{
+                        // console.log(items)
+                        return(
+                            <>
+                                <Item item={item.data} accessToken={accessToken}/>
+                            </>
+                        )         
+                    })}
+                </div>
+            )
+        }
+        else{
+            return(
+                        <div>
+                            {items.results.map((item) =>{
+                                console.log(item)
+                                return(
+                                    <>
+                                        <Item item={item.data} accessToken={accessToken}/>
+                                    </>
+                                )         
+                            })}
+                        </div>
+                    )
+
+        }
+
+        
         //returns all items that match the search name
-        else {
-            return(
-                <div>
-                    {items.results.map((items) =>{
-                        console.log(items)
-                        return(
-                            <>
-                                <h1>Name: {items.data.name.en_US}</h1>
-                                <h1>Type: {items.data.item_subclass.name.en_US}</h1>
-                            </>
-                        )         
-                    })}
-                </div>
-            )
-        }
+        
         
     }
 

@@ -58,7 +58,7 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
                     <option value="CLOAK">Cloak</option>
                     <option value="CHEST">Chest</option>
                     <option value="WRIST">Wrist</option>
-                    <option value="GLOVE">Glove</option>
+                    <option value="HAND">Glove</option>
                     <option value="WAIST">Waist</option>
                     <option value="LEGS">Legs</option>
                     <option value="FEET">Feet</option>
