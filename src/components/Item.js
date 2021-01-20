@@ -129,7 +129,7 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         console.log("add")
         
         if(bisList.length === 0){
-            setBisList(bisList =>[...bisList, item])
+            setBisList(bisList =>[...bisList, itemDetails])
                 console.log(bisList)
                 updateBis()
                 
@@ -137,10 +137,10 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         else{
             for(let i = 0; i< bisList.length; i++){
                 console.log(bisList[i])
-                if(bisList[i].inventory_type.type !== item.inventory_type.type){
+                if(bisList[i].inventory_type.type !== itemDetails.inventory_type.type){
                     listCount++
                     if(listCount === bisList.length){
-                        setBisList(bisList =>[...bisList, item])
+                        setBisList(bisList =>[...bisList, itemDetails])
                         console.log(bisList)
                         updateBis()
                     }
@@ -160,28 +160,24 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
             return(
                 <div className="item">
                     <img src={icon.assets[0].value} alt=""></img>
-                    <h1>Name: {item.name.en_US}</h1>
-                    <h1>Type: {item.item_subclass.name.en_US}</h1>
-                    <div className="item_stats">                        
+                    <p>{item.name.en_US}</p>
+                    <p>{item.item_subclass.name.en_US}</p>
+                    {/* <div className="item_stats">                        
                         {itemDetails.preview_item.stats.map((stat) =>{
                             return <h2>{stat.type.name}: {stat.value}</h2>   
                         })} 
-                    </div>
+                    </div> */}
                     <button onClick={addToBisList}>+</button>    
                 </div>
             )
         }
-        
-
-        
-
     }
 
     const loading = () =>{
         <h1>LOADING...</h1>
     }
     return (
-        <div>
+        <div className="itemContainer">
             {icon ? loaded() : loading()}
         </div>
     );

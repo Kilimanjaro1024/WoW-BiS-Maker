@@ -62,7 +62,7 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         if(searchType !== "" && searchSlot !== ""){
             sortByTypeAndSlot(typeArr)
             return(
-                <div>
+                <div >
                     {typeArr.map((item) =>{
                         // console.log(items)
                         return(
@@ -78,7 +78,7 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         {
             sortByType(typeArr)
             return(
-                <div>
+                <div >
                     {typeArr.map((item) =>{
                         // console.log(items)
                         return(
@@ -94,7 +94,7 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         {
             sortBySlot(typeArr)
             return(
-                <div>
+                <div >
                     {typeArr.map((item) =>{
                         // console.log(items)
                         return(
@@ -108,7 +108,7 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         }
         else{
             return(
-                        <div>
+                        <div >
                             {items.results.map((item) =>{
                                 // console.log(item)
                                 return(
@@ -132,9 +132,17 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         <h1>LOADING...</h1>
     }
     return (
-        <div>
-            {items ? loaded() : loading()}
-        </div>
+        <>
+            <div className="itemList">
+                <div className="itemNav">      
+                    <h3>ICON</h3>
+                    <h3>NAME</h3>
+                    <h3>TYPE</h3>
+                    <h3>ADD</h3>
+                </div>
+                {items ? loaded() : loading()}
+            </div>
+        </>
     );
 };
 

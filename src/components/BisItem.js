@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Item from "./Item.js"
 
-const BisItem = ({bisItem, setBisList, accessToken}) => {
+const BisItem = ({bisItem, setBisList, accessToken, id}) => {
     // console.log(bisItem)
     const iconUrl = `https://us.api.blizzard.com/data/wow/media/item/${bisItem.media.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
     const itemUrl = `https://us.api.blizzard.com/data/wow/item/${bisItem.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
@@ -28,7 +28,7 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
     }, [])
 
     const handleClick = () =>{
-        // console.log("Clicked")
+        console.log("Clicked")
         const popup = document.getElementById(bisItem.id)
         popup.classList.toggle("show")
     }
@@ -46,10 +46,6 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
                         <img src={icon.assets[0].value} alt=""></img>
                             <span className="popuptext" id={bisItem.id}>
                                 <Item item={bisItem} accessToken={accessToken} setBisList={setBisList}/>
-                                {/* <img src={icon.assets[0].value} alt=""></img>
-                                {itemDetails.preview_item.stats.map((stat) =>{
-                                    return <h2>{stat.type.name}: {stat.value}</h2>   
-                                })} */}
                             </span>
                         </div>
                        
@@ -72,7 +68,7 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
         <h1>LOADING...</h1>
     }
     return (
-        <div>
+        <div className="bisItem" id={id}>
             {icon ? loaded() : loading()}
         </div>
     );

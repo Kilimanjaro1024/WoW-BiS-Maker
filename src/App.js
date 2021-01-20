@@ -43,7 +43,7 @@ function App() {
   const [bisList, setBisList] = React.useState([])
   const [gear, setGear] = React.useState(gearObj)
   // const [slot, setSlot] = React.useState(gear)
-  const [accessToken,setAccessToken] = React.useState("UStLjWOnrdAmZ0VkWi6tMtLifEZsvbw4E5")
+  const [accessToken,setAccessToken] = React.useState("USrlJpHrf3f4pSS6D2ZX13Ft4jF8KC202I")
 
   // React.useEffect(async () =>{
   //   const BnetApi = new BlizzAPI({ region:'us', clientId: REACT_APP_API, clientSecret: REACT_APP_SECRECT });

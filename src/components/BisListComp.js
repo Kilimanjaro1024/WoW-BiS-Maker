@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import BisList from "../pages/BisList";
 import Item from "./Item"
 import SlotManager from "./SlotManager.js"
+import StatSummary from "./StatSummary"
 
-const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear}) => {
+const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }) => {
     // console.log(bisList)
     return (
-        <div>
+        <div className="bisComp">
             <SlotManager bisList={bisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear}/>
+            <StatSummary bisList={bisList}/>
             {/* {bisList.map((bisItem) =>{
                 return <Item item={bisItem} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
             })} */}
