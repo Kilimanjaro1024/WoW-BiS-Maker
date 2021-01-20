@@ -30,13 +30,13 @@ function App() {
     HEAD: "",
     SHOULDER: "",
     NECK: "",
-    BACK: "",
+    CLOAK: "",
     CHEST: "",
     WRIST: "",
     HAND: "",
     WAIST: "",
     LEGS: "",
-    BOOTS: "",
+    FEET: "",
     FINGER: "",
     TRINKET: ""
   }

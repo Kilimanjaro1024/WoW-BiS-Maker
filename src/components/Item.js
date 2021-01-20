@@ -25,6 +25,105 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         getItemDetails()
     }, [iconUrl,itemUrl])
 
+    const updateBis = () =>{
+        if(item.inventory_type.type === "HEAD"){
+                             
+            setGear({
+             ...gear,
+             HEAD: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "CHEST"){
+             
+             setGear({
+              ...gear,
+              CHEST: item
+             })
+             
+          }
+          else if(item.inventory_type.type === "SHOULDER"){
+             
+            setGear({
+             ...gear,
+             SHOULDER: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "NECK"){
+             
+            setGear({
+             ...gear,
+             NECK: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "LEGS"){
+             
+            setGear({
+             ...gear,
+             LEGS: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "HAND"){
+             
+            setGear({
+             ...gear,
+             HAND: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "WRIST"){
+             
+            setGear({
+             ...gear,
+             WRIST: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "WAIST"){
+             
+            setGear({
+             ...gear,
+             WAIST: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "FEET"){
+             
+            setGear({
+             ...gear,
+             FEET: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "CLOAK"){
+             
+            setGear({
+             ...gear,
+             CLOAK: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "FINGER"){
+             
+            setGear({
+             ...gear,
+             FINGER: item
+            })
+            
+         }
+         else if(item.inventory_type.type === "TRINKET"){
+             
+            setGear({
+             ...gear,
+             TRINKET: item
+            })
+            
+         }
+
+    }
     let listCount = 0
     const addToBisList = () =>{
         console.log("add")
@@ -32,22 +131,8 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         if(bisList.length === 0){
             setBisList(bisList =>[...bisList, item])
                 console.log(bisList)
-                if(item.inventory_type.type === "HEAD"){
-                             
-                    setGear({
-                     ...gear,
-                     HEAD: item
-                    })
-                    
-                 }
-                 else if(item.inventory_type.type === "CHEST"){
-                     
-                     setGear({
-                      ...gear,
-                      CHEST: item
-                     })
-                     
-                  }
+                updateBis()
+                
         }
         else{
             for(let i = 0; i< bisList.length; i++){
@@ -57,22 +142,7 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
                     if(listCount === bisList.length){
                         setBisList(bisList =>[...bisList, item])
                         console.log(bisList)
-                        if(item.inventory_type.type === "HEAD"){
-                             
-                            setGear({
-                             ...gear,
-                             HEAD: item
-                            })
-                            
-                         }
-                         else if(item.inventory_type.type === "CHEST"){
-                             
-                             setGear({
-                              ...gear,
-                              CHEST: item
-                             })
-                             
-                          }
+                        updateBis()
                     }
                     
                 }
