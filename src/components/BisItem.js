@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Item from "./Item.js"
+
 const BisItem = ({bisItem, setBisList, accessToken}) => {
-    console.log(bisItem)
+    // console.log(bisItem)
     const iconUrl = `https://us.api.blizzard.com/data/wow/media/item/${bisItem.media.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
     const itemUrl = `https://us.api.blizzard.com/data/wow/item/${bisItem.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
 
@@ -25,22 +27,35 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
         getItemDetails()
     }, [])
 
+    const handleClick = () =>{
+        // console.log("Clicked")
+        const popup = document.getElementById("myPopup")
+        popup.classList.toggle("show")
+    }
+
     const loaded = () =>{
         // return <h1>bisItem</h1>
         if(itemDetails !== null){
             
-            console.log(itemDetails.preview_item)
+            // console.log(itemDetails.preview_item)
                 return(
-                    <div>
+                    <div class="popup" onClick={handleClick}>
+                        
                         <img src={icon.assets[0].value} alt=""></img>
-                        <h1>Name: {bisItem.name.en_US}</h1>
+                        <span className="popuptext" id="myPopup">
+                            <Item item={bisItem} accessToken={accessToken} setBisList={setBisList}/>
+                            {/* <img src={icon.assets[0].value} alt=""></img>
+                            {itemDetails.preview_item.stats.map((stat) =>{
+                                return <h2>{stat.type.name}: {stat.value}</h2>   
+                            })} */}
+                        </span>
+                        {/* <h1>Name: {bisItem.name.en_US}</h1>
                         <h1>Type: {bisItem.item_subclass.name.en_US}</h1>
                         <div>                        
                             {itemDetails.preview_item.stats.map((stat) =>{
                                 return <h2>{stat.type.name}: {stat.value}</h2>   
                             })} 
-                        </div>
-                        <button>+</button>    
+                        </div> */}  
                     </div>
                 )
         }
@@ -54,7 +69,6 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
     }
     return (
         <div>
-            <h1>Hello</h1>
             {icon ? loaded() : loading()}
         </div>
     );

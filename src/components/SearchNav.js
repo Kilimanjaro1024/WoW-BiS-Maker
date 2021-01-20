@@ -27,7 +27,7 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
         setSearchType(type)
         setSearchSlot(slot)      
     }
-    console.log(type)
+    // console.log(type)
     return (
         <div className="nav">
         <form>

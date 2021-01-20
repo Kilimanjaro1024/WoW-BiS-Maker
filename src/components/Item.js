@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({item, accessToken, setBisList, bisList}) => {
+const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
     // console.log(bisList)
     const iconUrl = `https://us.api.blizzard.com/data/wow/media/item/${item.media.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
     const itemUrl = `https://us.api.blizzard.com/data/wow/item/${item.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
@@ -25,9 +25,63 @@ const Item = ({item, accessToken, setBisList, bisList}) => {
         getItemDetails()
     }, [iconUrl,itemUrl])
 
+    let listCount = 0
     const addToBisList = () =>{
-        setBisList(bisList =>[...bisList, item])
-        console.log(bisList)
+        console.log("add")
+        
+        if(bisList.length === 0){
+            setBisList(bisList =>[...bisList, item])
+                console.log(bisList)
+                if(item.inventory_type.type === "HEAD"){
+                             
+                    setGear({
+                     ...gear,
+                     HEAD: item
+                    })
+                    
+                 }
+                 else if(item.inventory_type.type === "CHEST"){
+                     
+                     setGear({
+                      ...gear,
+                      CHEST: item
+                     })
+                     
+                  }
+        }
+        else{
+            for(let i = 0; i< bisList.length; i++){
+                console.log(bisList[i])
+                if(bisList[i].inventory_type.type !== item.inventory_type.type){
+                    listCount++
+                    if(listCount === bisList.length){
+                        setBisList(bisList =>[...bisList, item])
+                        console.log(bisList)
+                        if(item.inventory_type.type === "HEAD"){
+                             
+                            setGear({
+                             ...gear,
+                             HEAD: item
+                            })
+                            
+                         }
+                         else if(item.inventory_type.type === "CHEST"){
+                             
+                             setGear({
+                              ...gear,
+                              CHEST: item
+                             })
+                             
+                          }
+                    }
+                    
+                }
+                else{
+                    console.log("error")
+                }
+            }
+        }
+        
     }
 
     const loaded = () =>{
