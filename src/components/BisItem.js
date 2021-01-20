@@ -39,16 +39,20 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
             
             // console.log(itemDetails.preview_item)
                 return(
-                    <div class="popup" onClick={handleClick}>
+                    <div>
                         
+                       
+                        <div class="popup" onClick={handleClick}>
                         <img src={icon.assets[0].value} alt=""></img>
-                        <span className="popuptext" id="myPopup">
-                            <Item item={bisItem} accessToken={accessToken} setBisList={setBisList}/>
-                            {/* <img src={icon.assets[0].value} alt=""></img>
-                            {itemDetails.preview_item.stats.map((stat) =>{
-                                return <h2>{stat.type.name}: {stat.value}</h2>   
-                            })} */}
-                        </span>
+                            <span className="popuptext" id="myPopup">
+                                <Item item={bisItem} accessToken={accessToken} setBisList={setBisList}/>
+                                {/* <img src={icon.assets[0].value} alt=""></img>
+                                {itemDetails.preview_item.stats.map((stat) =>{
+                                    return <h2>{stat.type.name}: {stat.value}</h2>   
+                                })} */}
+                            </span>
+                        </div>
+                       
                         {/* <h1>Name: {bisItem.name.en_US}</h1>
                         <h1>Type: {bisItem.item_subclass.name.en_US}</h1>
                         <div>                        

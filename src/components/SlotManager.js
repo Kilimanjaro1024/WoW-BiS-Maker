@@ -7,56 +7,7 @@ import BisItem from "./BisItem"
 
 const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}) => {
 
-    // console.log(gear.HEAD)
-    // console.log(gear.CHEST)
-    // const func = (list) => {
-    //     let obj = gear
-    //     for (let i = 0; i < list.length; i++) {
-    //         if(list[i].inventory_type.type === "HEAD"){
-    //            setGear({
-    //             HEAD: list[i].inventory_type.type,
-    //             SHOULDER: obj.SHOULDER,
-    //             NECK: obj.NECK,
-    //             BACK: obj.BACK,
-    //             CHEST: obj.CHEST,
-    //             WRIST: obj.WRIST,
-    //             HAND: obj.HAND,
-    //             WAIST: obj.WAIST,
-    //             LEGS: obj.LEGS,
-    //             BOOTS: obj.BOOTS,
-    //             FINGER: obj.FINGER,
-    //             TRINKET: obj.TRINKET
-    //            })
-    //         }
-    //         if(list[i].inventory_type.type === "CHEST"){
-                
-    //             setGear({
-    //              HEAD: obj.HEAD,
-    //              SHOULDER: obj.SHOULDER,
-    //              NECK: obj.NECK,
-    //              BACK: obj.BACK,
-    //              CHEST: list[i].inventory_type.type,
-    //              WRIST: obj.WRIST,
-    //              HAND: obj.HAND,
-    //              WAIST: obj.WAIST,
-    //              LEGS: obj.LEGS,
-    //              BOOTS: obj.BOOTS,
-    //              FINGER: obj.FINGER,
-    //              TRINKET: obj.TRINKET
-    //             })
-                
-    //          }
-            
-    //     }
-        
-        
-    // }
-
-    // React.useEffect(() =>{        
-    //     func(bisList)
-    //     console.log(gear)
-    // }, [])
-    
+    const gearLayout = [gear.HEAD, gear.SHOULDER, gear.NECK, gear.CLOAK, gear.CHEST, gear.WRIST, gear.HAND, gear.WAIST, gear.LEGS, gear.FEET, gear.FINGER, gear.TRINKET]
     return (
         <div>
             
@@ -77,8 +28,15 @@ const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}
 
             <img src="https://static.wikia.nocookie.net/wowpedia/images/2/26/Ui-paperdoll-slot-trinket.png/revision/latest/scale-to-width-down/64?cb=20070607015403" alt=""></img>
             <img src="https://static.wikia.nocookie.net/wowpedia/images/2/26/Ui-paperdoll-slot-trinket.png/revision/latest/scale-to-width-down/64?cb=20070607015403" alt=""></img> */}
-            {bisList.map((bisItem) =>{
-                return <BisItem bisItem={bisItem} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
+            {gearLayout.map((item) =>{
+                if(item !== ""){
+                    console.log(item)
+                    return <BisItem bisItem={item} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
+                }
+                else{
+                    return <img src="https://static.wikia.nocookie.net/wowpedia/images/f/f5/Ui-paperdoll-slot-mainhand.png/revision/latest/scale-to-width-down/120?cb=20070607015117" alt=""/>
+                }
+                
             })}
             
         </div>
