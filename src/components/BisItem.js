@@ -29,7 +29,7 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
 
     const handleClick = () =>{
         // console.log("Clicked")
-        const popup = document.getElementById("myPopup")
+        const popup = document.getElementById(bisItem.id)
         popup.classList.toggle("show")
     }
 
@@ -44,7 +44,7 @@ const BisItem = ({bisItem, setBisList, accessToken}) => {
                        
                         <div class="popup" onClick={handleClick}>
                         <img src={icon.assets[0].value} alt=""></img>
-                            <span className="popuptext" id="myPopup">
+                            <span className="popuptext" id={bisItem.id}>
                                 <Item item={bisItem} accessToken={accessToken} setBisList={setBisList}/>
                                 {/* <img src={icon.assets[0].value} alt=""></img>
                                 {itemDetails.preview_item.stats.map((stat) =>{
