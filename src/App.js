@@ -59,16 +59,18 @@ function App() {
   // console.log(accessToken)
   return (
     <div className="App">
-      <Nav/>
+      
       <Switch>
         <Route exact path="/">
-          <Main/>
+          <Main className="mainPage"/>
         </Route>
         <Route exact path="/ItemSearch">
-          <ItemSearch setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear}/>
+          <Nav/>
+          <ItemSearch setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear} className="mainPage"/>
         </Route> 
         <Route exact path="/BisList">
-          <BisList bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear}/>
+          <Nav/>
+          <BisList bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} className="mainPage"/>
         </Route>
       </Switch>
     </div>

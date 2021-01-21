@@ -10,7 +10,7 @@ const ItemSearch = ({setBisList, bisList, accessToken, setGear, gear}) => {
     // console.log(bisList)
     return (
         <>
-            <h1>This is the Item Search Component</h1>
+            <h1>Item Finder</h1>
             <SearchNav setSearchName={setSearchName} setSearchType={setSearchType} setSearchSlot={setSearchSlot} accessToken={accessToken}/>    
             <ItemList searchName={searchName} searchType={searchType} searchSlot={searchSlot} setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear}/>
         </>

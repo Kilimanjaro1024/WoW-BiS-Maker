@@ -5,14 +5,17 @@ const Nav = (props) => {
   return (
     <div className="nav">
       <Link to="/">
-        <div>Main</div>
-      </Link>  
-      <Link to="/itemsearch">
-        <div>Item Search</div>
+        <img src="https://assets.stickpng.com/images/5a576a4d1c992a034569ab75.png" alt="" height="81.5" width="200"/>
+        {/* <div>Main</div> */}
       </Link>
-      <Link to="/bislist">
-        <div>Bis List</div>
-      </Link>
+      <div className="navItems">
+        <Link to="/itemsearch">
+          <div id="itemSearch">Item Search</div>
+        </Link>
+        <Link to="/bislist">
+          <div id="bisList">Bis List</div>
+        </Link>
+      </div> 
     </div>
   );
 };

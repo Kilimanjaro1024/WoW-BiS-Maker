@@ -5,11 +5,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bd17d72f-89ae-4da2-8038-633023171ce8/d9fdan6-339793af-115e-4f52-9305-a9d7e70dc8dd.png/v1/fill/w_673,h_1188,q_70,strp/horde_parchment_by_wolfspirit1993_d9fdan6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xODA3IiwicGF0aCI6IlwvZlwvYmQxN2Q3MmYtODlhZS00ZGEyLTgwMzgtNjMzMDIzMTcxY2U4XC9kOWZkYW42LTMzOTc5M2FmLTExNWUtNGY1Mi05MzA1LWE5ZDdlNzBkYzhkZC5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.KO3oCCaIq2VgvtB_XXTT4EQhqMC1xsd-v1JhR3i0hzE");
+  background-size: cover;
 }
+
+/* * {
+  border: 1px solid black;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* .mainPage{
+  background-image: url("https://wallpaperaccess.com/full/827467.jpg");
+  background-position: cover;
+} */
+
+.main{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50%;
+  
+}
+
+.navItems{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navItems a{
+  max-width: 80px;
 }
 
 .popup {
@@ -85,21 +113,44 @@ code {
 }
 
 .itemContainer{
-  display:flex;
+  margin: 5px 0;
+  /* display:flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .itemNav{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .item{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  /* display: flex;
   align-items: center;
   justify-content: space-between;
-  
+   */
+}
+
+.item img{
+  margin: auto;
+}
+
+.item p{
+  margin: auto;
+}
+
+.item button{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 30px;
+  width: 30px;
+  margin: auto;
 }
 
 .bisItem{
