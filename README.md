@@ -161,3 +161,14 @@ const addToBisList = () =>{
     }
 }
 ```
+
+## Issues and Resolutions
+
+- Issue: blizzards API requires and access token to be generated every 24hrs.
+    - Resolution: After researching this issue extensively I discovered that I could make a fetch call inorder to generate an access token, however I was unable to get my function fully working so I sidelined it for the time being.
+- Issue: BiS list item slots not intitalizing on render.
+    - Resolution: Instead of updating the gear object on the render of the bis list page I made it a state in app andupdated it every time an item was added to it.
+- Issue: Remove button not modifying the bisList state properly.
+    - Resolution: pending (I have a hunch that I need to create keys for my BisItems so that the function knows which item to remove)
+- Issue: Add button was adding the selected item for for each item already in the list.
+    - Resolution: I added a counter that I checked against the length of bisList and only added the item if the were equal.
