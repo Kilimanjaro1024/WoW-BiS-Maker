@@ -131,22 +131,13 @@ const BisItem = ({bisItem, bisList, setBisList, accessToken, id, gear, setGear})
         
         // for (let i = 0; i < bisList.length; i++) {
         //     if(bisList[i].id === bisItem.id){
-        //         index = i
-               
-                
+        //         index = i      
         //     }
-            
-            
         // }
-        
-        
         setBisList(bisList.filter((item) => (item.name.en_US !== bis)))
         updateBis()
         console.log(bisList)
-        
         setModalShow(false)
-        
-        
     }
 
     const loaded = () =>{
@@ -187,10 +178,6 @@ const BisItem = ({bisItem, bisList, setBisList, accessToken, id, gear, setGear})
             {icon ? loaded() : loading()}
         </div>
     );
-    // return (
-    //     <div>hi
-    //     </div>
-    // ) 
 };
 
 export default BisItem

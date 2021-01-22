@@ -11,21 +11,7 @@ import BlizzAPI from "blizzapi"
 
 function App() {
   const {  REACT_APP_API, REACT_APP_SECRECT , REACT_APP_TOKEN  } = process.env
-  // console.log(REACT_APP_API)
-  
-
-
-  // const createAccessToken = (apiKey, apiSecret) =>{
-  //   // const api = new BlizzAPI({
-  //   //   region: 'us',
-  //   //   clientId: apiKey,
-  //   //   clientSecret: apiSecret
-  //   // });
-  
-  //   // const data = await api.query('/oauth/token');
-    
-  //   // return data
-  // }
+ 
   const gearObj = {
     HEAD: "",
     SHOULDER: "",
@@ -46,6 +32,7 @@ function App() {
   // const [slot, setSlot] = React.useState(gear)
   const [accessToken,setAccessToken] = React.useState(REACT_APP_TOKEN)
 
+  //#region generate Token
   // React.useEffect(async () =>{
   //   const BnetApi = new BlizzAPI({ region:'us', clientId: REACT_APP_API, clientSecret: REACT_APP_SECRECT });
 
@@ -58,6 +45,22 @@ function App() {
     
   // }, [])
   // console.log(accessToken)
+  // console.log(REACT_APP_API)
+  
+
+
+  // const createAccessToken = (apiKey, apiSecret) =>{
+  //   // const api = new BlizzAPI({
+  //   //   region: 'us',
+  //   //   clientId: apiKey,
+  //   //   clientSecret: apiSecret
+  //   // });
+  
+  //   // const data = await api.query('/oauth/token');
+    
+  //   // return data
+  // }
+  //#endregion
   return (
     <div className="App">
       

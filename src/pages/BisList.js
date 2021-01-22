@@ -5,11 +5,13 @@ const BisList = ({bisList, setBisList, accessToken, gearObj, setGear, gear ,list
   
   return (
     <>
-      {/* <div className="pageHeading">
-        <h>Bis List</h>
-      </div> */}
-      
-      <BisListComp bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear}/>
+      <BisListComp 
+        bisList={bisList} 
+        setBisList={setBisList} 
+        accessToken={accessToken} 
+        gearObj={gearObj} 
+        gear={gear} 
+        setGear={setGear}/>
     </>
   )
 };

@@ -153,7 +153,6 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
                         console.log(bisList)
                         updateBis()
                     }
-                    
                 }
                 else{
                     console.log("error")

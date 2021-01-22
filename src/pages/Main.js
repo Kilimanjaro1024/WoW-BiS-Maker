@@ -8,8 +8,6 @@ const Main = (props) => {
         <Nav/>
       </div>
     </div>
-   
-    
   )
 };
 
