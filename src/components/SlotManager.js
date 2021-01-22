@@ -11,11 +11,6 @@ const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}
     
     const gearLayout = [gear.HEAD, gear.SHOULDER, gear.NECK, gear.CLOAK, gear.CHEST, gear.WRIST, gear.HAND, gear.WAIST, gear.LEGS, gear.FEET, gear.FINGER, gear.TRINKET]
 
-    // const lableSlot = () =>{
-    //     for (let i = 0; i < gearLayout.length; i++) {
-    //         gearLayout[i].className = `slot${i}`     
-    //     }
-    // }
     React.useEffect(() => {
         
     }, [gear])
