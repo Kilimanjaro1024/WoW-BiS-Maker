@@ -10,8 +10,13 @@ const ItemSearch = ({setBisList, bisList, accessToken, setGear, gear}) => {
     // console.log(bisList)
     return (
         <>
-            <h1>Item Finder</h1>
-            <SearchNav setSearchName={setSearchName} setSearchType={setSearchType} setSearchSlot={setSearchSlot} accessToken={accessToken}/>    
+        <div className="pageHeading">
+            {/* <div className="title">
+                <h>Item Finder</h>
+            </div> */}
+            <SearchNav setSearchName={setSearchName} setSearchType={setSearchType} setSearchSlot={setSearchSlot} accessToken={accessToken}/>
+        </div>
+                
             <ItemList searchName={searchName} searchType={searchType} searchSlot={searchSlot} setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear}/>
         </>
     )

@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 const Nav = (props) => {
   return (
-    <div className="nav">
+    <div className="menu">
       <Link to="/">
-        <img src="https://assets.stickpng.com/images/5a576a4d1c992a034569ab75.png" alt="" height="81.5" width="200"/>
+        <img src="https://i.imgur.com/mbUgBN8.png" alt="" height="74" width="187.625"/>
         {/* <div>Main</div> */}
       </Link>
       <div className="navItems">
         <Link to="/itemsearch">
           <div id="itemSearch">Item Search</div>
         </Link>
+        <div className="vl"/>
         <Link to="/bislist">
           <div id="bisList">Bis List</div>
         </Link>

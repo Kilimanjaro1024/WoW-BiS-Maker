@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ModalPopup from"./modal.js"
 
 const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
     // console.log(bisList)
@@ -8,6 +9,7 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
 
     const [icon, setIcon] = React.useState(null)
     const [itemDetails, setItemDetails] = React.useState(null)
+    const [modalShow, setModalShow] = React.useState(false);
 
     const getIcon = async () =>{
         const response = await fetch(iconUrl)
@@ -20,7 +22,15 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         setItemDetails(data)
     }
 
-    React.useEffect(() =>{        
+    const handleClick = () =>{
+        console.log("Clicked")
+        setModalShow(true)
+    }
+
+    React.useEffect(() =>{ 
+        if(bisList.length > listCount){
+            listCount = 0
+        }       
         getIcon()
         getItemDetails()
     }, [iconUrl,itemUrl])
@@ -130,9 +140,8 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         
         if(bisList.length === 0){
             setBisList(bisList =>[...bisList, itemDetails])
-                console.log(bisList)
-                updateBis()
-                
+            console.log(bisList)
+            updateBis()   
         }
         else{
             for(let i = 0; i< bisList.length; i++){
@@ -158,17 +167,27 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         if(itemDetails !== null && itemDetails.preview_item.stats !== undefined){
             // console.log(itemDetails.preview_item)
             return(
-                <div className="item">
-                    <img src={icon.assets[0].value} alt=""></img>
-                    <p>{item.name.en_US}</p>
-                    <p>{item.item_subclass.name.en_US}</p>
-                    {/* <div className="item_stats">                        
-                        {itemDetails.preview_item.stats.map((stat) =>{
-                            return <h2>{stat.type.name}: {stat.value}</h2>   
-                        })} 
-                    </div> */}
-                    <button onClick={addToBisList}>+</button>    
-                </div>
+                <>
+                    <ModalPopup
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                            icon={<img src={icon.assets[0].value} alt=""></img>}
+                            itemName={item.name.en_US}
+                            itemStats={<div>                        
+                                {itemDetails.preview_item.stats.map((stat) =>{
+                                    return <p>{stat.type.name}: {stat.value}</p>   
+                                })} 
+                            </div>}
+                            buttonText="Add"
+                            buttonFunction={addToBisList}
+                        />
+                    <div className="item">
+                        <img src={icon.assets[0].value} alt="" onClick={handleClick}/>
+                        <p>{item.name.en_US}</p>
+                        <p>{item.item_subclass.name.en_US}</p>
+                        <button onClick={addToBisList} className="btn btn-primary">+</button>    
+                    </div>
+                </>
             )
         }
     }

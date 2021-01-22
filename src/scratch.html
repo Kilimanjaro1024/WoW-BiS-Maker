@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = new FormData()
+        data.append("key", "b22c5abe55a44c8780a3210c5637d04c")
+        data.append("secret", "PGZmpXmWtJrouZS9M8MwWq0tB53PI58f")
+
+        fetch("https://us.battle.net/oauth/token?grant_type=client_credentials",{
+            method: "post",
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        })
+        .then((response) => response.json())
+        .then((finalData) => {
+            console.log(finalData)
+        })
+    </script>
+</body>
+</html>

@@ -40,10 +40,11 @@ function App() {
     FINGER: "",
     TRINKET: ""
   }
+  let listCount = 0
   const [bisList, setBisList] = React.useState([])
   const [gear, setGear] = React.useState(gearObj)
   // const [slot, setSlot] = React.useState(gear)
-  const [accessToken,setAccessToken] = React.useState("USrlJpHrf3f4pSS6D2ZX13Ft4jF8KC202I")
+  const [accessToken,setAccessToken] = React.useState("USBkx1v1a9B9pWd7tcthWLLHEotqIAAMwr")
 
   // React.useEffect(async () =>{
   //   const BnetApi = new BlizzAPI({ region:'us', clientId: REACT_APP_API, clientSecret: REACT_APP_SECRECT });
@@ -66,11 +67,11 @@ function App() {
         </Route>
         <Route exact path="/ItemSearch">
           <Nav/>
-          <ItemSearch setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear} className="mainPage"/>
+          <ItemSearch setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear} className="mainPage" listCount={listCount}/>
         </Route> 
         <Route exact path="/BisList">
           <Nav/>
-          <BisList bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} className="mainPage"/>
+          <BisList bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} className="mainPage" listCount={listCount}/>
         </Route>
       </Switch>
     </div>

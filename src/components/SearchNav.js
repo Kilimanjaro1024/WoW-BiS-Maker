@@ -29,14 +29,15 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
     }
     // console.log(type)
     return (
-        <div className="nav">
-        <form>
+        <div>
+        <form className="searchNav">
             <input 
                 type="text"
                 onChange={handleNameChange} 
                 name="iname" 
                 placeholder="Item Name">
-            </input>  
+            </input>
+            <br/>  
             <select 
                 id="types" 
                 name="types"
@@ -48,8 +49,8 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
                 <option value="Cloth">Cloth</option>
             </select>
             <select 
-                id="types" 
-                name="types"
+                id="slot" 
+                name="slots"
                 onChange={handleSlotChange}>
                     <option value={null}></option>
                     <option value="HEAD">Head</option>
@@ -70,7 +71,8 @@ const SearchNav = ({setSearchName, setSearchType, setSearchSlot}) => {
             <input
                 type="Submit"
                 value="Submit"
-                onClick={handleClick}>
+                onClick={handleClick}
+                >
             </input>
         </form>
         </div>

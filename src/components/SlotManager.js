@@ -16,21 +16,24 @@ const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}
     //         gearLayout[i].className = `slot${i}`     
     //     }
     // }
-    // React.useEffect(() => {
-    //     lableSlot()
-    // }, [])
+    React.useEffect(() => {
+        
+    }, [gear])
     return (
         <div className="slotMng">
             <div className="popup" id="popupAnchor">
             </div>
             {gearLayout.map((item, index) =>{
                 console.log(index)
-                if(item !== ""){
+                if(item === undefined){
+                    return <img src="https://i.imgur.com/INnsE9J.png" alt="" width="56" height="56" id={`slot${index}`}/>
+                }
+                else if(item !== ""){
                     console.log(item)
-                    return <BisItem bisItem={item} accessToken={accessToken} setBisList={setBisList} bisList={bisList} id={`slot${index}`}/>
+                    return <BisItem bisItem={item} accessToken={accessToken} setBisList={setBisList} bisList={bisList} id={`slot${index}`} setBisList={setBisList} setGear={setGear} gear={gear}/>
                 }
                 else{
-                    return <img src="https://static.wikia.nocookie.net/wowwiki/images/0/05/Ui-paperdoll-slot-ammo.png/revision/latest/scale-to-width-down/64?cb=20070606225836" alt="" width="56" height="56" id={`slot${index}`}/>
+                    return <img src="https://i.imgur.com/INnsE9J.png" alt="" width="56" height="56" id={`slot${index}`}/>
                 }   
             })}
             

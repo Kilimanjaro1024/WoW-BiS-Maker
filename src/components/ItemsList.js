@@ -135,12 +135,15 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         <>
             <div className="itemList">
                 <div className="itemNav">      
-                    <h3>ICON</h3>
-                    <h3>NAME</h3>
-                    <h3>TYPE</h3>
-                    <h3>ADD</h3>
+                    <h4>ICON</h4>
+                    <h4>NAME</h4>
+                    <h4>TYPE</h4>
+                    <h4>ADD</h4>
                 </div>
-                {items ? loaded() : loading()}
+                <div className="list">
+                    {items ? loaded() : loading()}
+                </div>
+                
             </div>
         </>
     );
