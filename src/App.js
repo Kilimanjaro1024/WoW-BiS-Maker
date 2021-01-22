@@ -12,6 +12,17 @@ import BlizzAPI from "blizzapi"
 function App() {
   const {  REACT_APP_API, REACT_APP_SECRECT , REACT_APP_TOKEN  } = process.env
  
+  const statsObj = {
+    STAMINA: 0,
+    STRENGTH: 0,
+    INTELLECT: 0,
+    AGILITY: 0,
+    CRIT_RATING: 0,
+    HASTE_RATING: 0,
+    MASTERY_RATING: 0,
+    VERSATILITY: 0
+  }
+
   const gearObj = {
     HEAD: "",
     SHOULDER: "",
@@ -26,9 +37,11 @@ function App() {
     FINGER: "",
     TRINKET: ""
   }
+
   let listCount = 0
   const [bisList, setBisList] = React.useState([])
   const [gear, setGear] = React.useState(gearObj)
+  const [stats, setStats] = React.useState(statsObj)
   // const [slot, setSlot] = React.useState(gear)
   const [accessToken,setAccessToken] = React.useState(REACT_APP_TOKEN)
 
@@ -70,11 +83,30 @@ function App() {
         </Route>
         <Route exact path="/ItemSearch">
           <Nav/>
-          <ItemSearch setBisList={setBisList} bisList={bisList} accessToken={accessToken} gear={gear} setGear={setGear} className="mainPage" listCount={listCount}/>
+          <ItemSearch 
+            setBisList={setBisList} 
+            bisList={bisList} 
+            accessToken={accessToken} 
+            gear={gear} 
+            setGear={setGear} 
+            className="mainPage" 
+            listCount={listCount}
+            setStats={setStats}
+            stats={stats}/>
         </Route> 
         <Route exact path="/BisList">
           <Nav/>
-          <BisList bisList={bisList} setBisList={setBisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} className="mainPage" listCount={listCount}/>
+          <BisList 
+            bisList={bisList} 
+            setBisList={setBisList} 
+            accessToken={accessToken} 
+            gearObj={gearObj} 
+            gear={gear} 
+            setGear={setGear} 
+            className="mainPage" 
+            listCount={listCount}
+            setStats={setStats}
+            stats={stats}/>
         </Route>
       </Switch>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item.js"
 import { Link } from "react-router-dom";
 
-const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, accessToken, setGear, gear}) => {
+const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, accessToken, setGear, gear, setStats, stats}) => {
     // console.log(bisList)
     
     const url = `https://us.api.blizzard.com/data/wow/search/item?namespace=static-us&locale=en_US&name.en_US=${searchName}&orderby=id&_page=1&access_token=${accessToken}`
@@ -67,7 +67,14 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList} gear={gear} setGear={setGear}/>
+                                <Item item={item.data} 
+                                    accessToken={accessToken} 
+                                    setBisList={setBisList} 
+                                    bisList={bisList} 
+                                    gear={gear} 
+                                    setGear={setGear} 
+                                    setStats={setStats}
+                                    stats={stats}/>
                             </>
                         )         
                     })}
@@ -83,7 +90,14 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList} gear={gear} setGear={setGear}/>
+                                <Item item={item.data} 
+                                    accessToken={accessToken} 
+                                    setBisList={setBisList} 
+                                    bisList={bisList} 
+                                    gear={gear} 
+                                    setGear={setGear} 
+                                    setStats={setStats}
+                                    stats={stats}/>
                             </>
                         )         
                     })}
@@ -99,7 +113,14 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
                         // console.log(items)
                         return(
                             <>
-                                <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList} gear={gear} setGear={setGear}/>
+                                <Item item={item.data} 
+                                    accessToken={accessToken} 
+                                    setBisList={setBisList} 
+                                    bisList={bisList} 
+                                    gear={gear} 
+                                    setGear={setGear} 
+                                    setStats={setStats}
+                                    stats={stats}/>
                             </>
                         )         
                     })}
@@ -108,17 +129,24 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
         }
         else{
             return(
-                        <div >
-                            {items.results.map((item) =>{
-                                // console.log(item)
-                                return(
-                                    <>
-                                        <Item item={item.data} accessToken={accessToken} setBisList={setBisList} bisList={bisList} gear={gear} setGear={setGear}/>
-                                    </>
-                                )         
-                            })}
-                        </div>
-                    )
+                <div >
+                    {items.results.map((item) =>{
+                        // console.log(item)
+                        return(
+                            <>
+                                <Item item={item.data} 
+                                    accessToken={accessToken} 
+                                    setBisList={setBisList} 
+                                    bisList={bisList} 
+                                    gear={gear} 
+                                    setGear={setGear} 
+                                    setStats={setStats}
+                                    stats={stats}/>
+                            </>
+                        )         
+                    })}
+                </div>
+            )
 
         }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import BisListComp from "../components/BisListComp.js"
 
-const BisList = ({bisList, setBisList, accessToken, gearObj, setGear, gear ,listCount}) => {
+const BisList = ({bisList, setBisList, accessToken, gearObj, setGear, gear , stats, setStats}) => {
   
   return (
     <>
@@ -11,7 +11,9 @@ const BisList = ({bisList, setBisList, accessToken, gearObj, setGear, gear ,list
         accessToken={accessToken} 
         gearObj={gearObj} 
         gear={gear} 
-        setGear={setGear}/>
+        setGear={setGear}
+        setStats={setStats}
+        stats={stats}/>
     </>
   )
 };

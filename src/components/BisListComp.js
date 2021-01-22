@@ -5,7 +5,7 @@ import Item from "./Item"
 import SlotManager from "./SlotManager.js"
 import StatSummary from "./StatSummary"
 
-const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }) => {
+const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear, stats, setStats }) => {
     // console.log(bisList)
     return (
         <div className="page">
@@ -13,7 +13,15 @@ const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }
                     <h4>Best in Slot Items</h4>
             </div>
             <div className="bisComp">
-                <SlotManager bisList={bisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} setBisList={setBisList}/>
+                <SlotManager 
+                    bisList={bisList} 
+                    accessToken={accessToken} 
+                    gearObj={gearObj} 
+                    gear={gear} 
+                    setGear={setGear} 
+                    setBisList={setBisList} 
+                    setStats={setStats}
+                    stats={stats}/>
                 
                 {/* <StatSummary bisList={bisList}/> */}
                 {/* {bisList.map((bisItem) =>{

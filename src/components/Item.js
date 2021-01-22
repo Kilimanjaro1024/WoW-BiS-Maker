@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BisItem from "./BisItem.js";
 import ModalPopup from"./modal.js"
 
-const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
+const Item = ({item, accessToken, setBisList, bisList, setGear, gear, setStats, stats}) => {
     // console.log(bisList)
     const iconUrl = `https://us.api.blizzard.com/data/wow/media/item/${item.media.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
     const itemUrl = `https://us.api.blizzard.com/data/wow/item/${item.id}?namespace=static-us&locale=en_US&access_token=${accessToken}`
@@ -35,113 +36,105 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
         getItemDetails()
     }, [iconUrl,itemUrl])
 
-    const updateBis = () =>{
+    const updateStats = (curItem) => {
+        console.log(curItem.preview_item.stats)
+        const newStats = {...stats}
+                for (let x = 0; x < curItem.preview_item.stats.length; x++) {
+                    
+                    if(curItem.preview_item.stats[x].type.type === "INTELLECT"){
+                        newStats.INTELLECT+= curItem.preview_item.stats[x].value   
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "STAMINA"){
+                        newStats.STAMINA+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "STRENGTH"){
+                        newStats.STRENGTH+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "AGILITY"){
+                        newStats.AGILITY+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "CRIT_RATING"){
+                        newStats.CRIT_RATING+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "VERSATILITY"){
+                        newStats.VERSATILITY+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "HASTE_RATING"){
+                        newStats.HASTE_RATING+= curItem.preview_item.stats[x].value
+                    }
+                    else if(curItem.preview_item.stats[x].type.type === "MASTERY_RATING"){
+                        newStats.MASTERY_RATING+= curItem.preview_item.stats[x].value
+                    } 
+                }
+                setStats(newStats)       
+            
+
+    }
+    const updateBis = () => {
+        const newGear = {...gear}
+        console.log(item.inventory_type.type)
         if(item.inventory_type.type === "HEAD"){
-                             
-            setGear({
-             ...gear,
-             HEAD: item
-            })
+            newGear.HEAD = item
+            updateStats(itemDetails) 
             
          }
          else if(item.inventory_type.type === "CHEST"){
-             
-             setGear({
-              ...gear,
-              CHEST: item
-             })
+            newGear.CHEST = item
+             console.log("Bruh")
+             updateStats(itemDetails) 
              
           }
           else if(item.inventory_type.type === "SHOULDER"){
-             
-            setGear({
-             ...gear,
-             SHOULDER: item
-            })
-            
+            newGear.SHOULDER = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "NECK"){
-             
-            setGear({
-             ...gear,
-             NECK: item
-            })
-            
+            newGear.NECK = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "LEGS"){
-             
-            setGear({
-             ...gear,
-             LEGS: item
-            })
-            
+            newGear.LEGS = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "HAND"){
-             
-            setGear({
-             ...gear,
-             HAND: item
-            })
-            
+            newGear.HAND = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "WRIST"){
-             
-            setGear({
-             ...gear,
-             WRIST: item
-            })
-            
+            newGear.WRIST = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "WAIST"){
-             
-            setGear({
-             ...gear,
-             WAIST: item
-            })
-            
+            newGear.WAIST = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "FEET"){
-             
-            setGear({
-             ...gear,
-             FEET: item
-            })
-            
+            newGear.FEET = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "CLOAK"){
-             
-            setGear({
-             ...gear,
-             CLOAK: item
-            })
-            
+            newGear.CLOAK = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "FINGER"){
-             
-            setGear({
-             ...gear,
-             FINGER: item
-            })
-            
+            newGear.FINGER = item
+            updateStats(itemDetails) 
          }
          else if(item.inventory_type.type === "TRINKET"){
-             
-            setGear({
-             ...gear,
-             TRINKET: item
-            })
-            
+            newGear.TRINKET = item
+            updateStats(itemDetails) 
          }
+         setGear(newGear)
 
     }
     let listCount = 0
     const addToBisList = () =>{
         console.log("add")
-        
+        const newList = bisList
         if(bisList.length === 0){
             setBisList(bisList =>[...bisList, itemDetails])
             console.log(bisList)
-            updateBis()   
+            updateBis()  
         }
         else{
             for(let i = 0; i< bisList.length; i++){
@@ -149,15 +142,18 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
                 if(bisList[i].inventory_type.type !== itemDetails.inventory_type.type){
                     listCount++
                     if(listCount === bisList.length){
-                        setBisList(bisList =>[...bisList, itemDetails])
+                        newList.push(itemDetails)
+                        // setBisList(bisList =>[...bisList, itemDetails])
                         console.log(bisList)
                         updateBis()
                     }
+                    setBisList(newList)
                 }
                 else{
                     console.log("error")
                 }
             }
+            
         }   
     }
 

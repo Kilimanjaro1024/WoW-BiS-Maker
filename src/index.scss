@@ -25,6 +25,22 @@ code {
   background: #22150F;
 }
 
+.stats{
+  background: rgba(0, 0, 0, 0.9);
+  grid-row: 4/7;
+  text-align: left;
+  .primary{
+    color: #FFFFFF;
+  }
+  .secondary{
+    color: green;
+  }
+  p{ 
+    margin: 0;
+    padding: 0;
+    font-size: small;
+  }
+}
 .main{
   display: flex;
   justify-content: space-around;

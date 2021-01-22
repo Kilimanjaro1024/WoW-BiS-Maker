@@ -6,7 +6,7 @@ import BisList from "../pages/BisList";
 import BisItem from "./BisItem"
 import StatSummary from "./StatSummary";
 
-const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}) => {
+const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear, stats, setStats}) => {
     
     
     const gearLayout = [gear.HEAD, gear.SHOULDER, gear.NECK, gear.CLOAK, gear.CHEST, gear.WRIST, gear.HAND, gear.WAIST, gear.LEGS, gear.FEET, gear.FINGER, gear.TRINKET]
@@ -16,7 +16,9 @@ const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}
     }, [gear])
     return (
         <div className="slotMng">
-            
+            <StatSummary 
+                setStats={setStats}
+                stats={stats}/>
             {gearLayout.map((item, index) =>{
                 console.log(index)
                 if(item === undefined){
