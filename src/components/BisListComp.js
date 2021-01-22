@@ -14,7 +14,7 @@ const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }
             </div>
             <div className="bisComp">
                 <SlotManager bisList={bisList} accessToken={accessToken} gearObj={gearObj} gear={gear} setGear={setGear} setBisList={setBisList}/>
-                //#region  code to add
+                
                 {/* <StatSummary bisList={bisList}/> */}
                 {/* {bisList.map((bisItem) =>{
                     return <Item item={bisItem} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
@@ -33,7 +33,7 @@ const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }
                     <p>stat</p>
                     <p>stat</p>
                 </div> */}
-                //#endregion
+              
             </div>
             
         </div>
