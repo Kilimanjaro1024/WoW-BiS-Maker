@@ -133,18 +133,28 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
     }
     return (
         <>
-            <div className="itemList">
-                <div className="itemNav">      
-                    <h4>ICON</h4>
-                    <h4>NAME</h4>
-                    <h4>TYPE</h4>
-                    <h4>ADD</h4>
+            <div className="searchUI">
+                <div className="itemList">
+                    <div className="itemNav">      
+                        <h4>ICON</h4>
+                        <h4>NAME</h4>
+                        <h4>TYPE</h4>
+                        <h4>ADD</h4>
+                    </div>
+                    <div className="list">
+                        {items ? loaded() : loading()}
+                    </div>
+                    
                 </div>
-                <div className="list">
-                    {items ? loaded() : loading()}
+                <div className="itemInspector">
+                    <h1>Item Name</h1>
+                    <p>stat</p>
+                    <p>stat</p>
+                    <p>stat</p>
+                    <p>stat</p>
                 </div>
-                
             </div>
+
         </>
     );
 };

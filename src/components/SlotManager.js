@@ -21,8 +21,7 @@ const  SlotManager = ({bisList, setBisList, accessToken, gearObj, setGear, gear}
     }, [gear])
     return (
         <div className="slotMng">
-            <div className="popup" id="popupAnchor">
-            </div>
+            
             {gearLayout.map((item, index) =>{
                 console.log(index)
                 if(item === undefined){
