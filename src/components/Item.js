@@ -159,8 +159,7 @@ const Item = ({item, accessToken, setBisList, bisList, setGear, gear}) => {
                     console.log("error")
                 }
             }
-        }
-        
+        }   
     }
 
     const loaded = () =>{
