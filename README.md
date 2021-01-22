@@ -101,7 +101,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 ## MVP
 
 | Component | Priority | Estimated Time | Time Invetsted |
-| --- | :---: |  :---: | :---: | :---: |
+| --- | :---: |  :---: | :---: |
 | Make Pages | H | 2hrs| 2hr |
 | Set Up API Calls | H | 3hrs| 5hr |
 | Set Up API Token Vendor* | H | 3hrs| 3hr |
