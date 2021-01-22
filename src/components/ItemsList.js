@@ -146,13 +146,13 @@ const ItemList = ({searchName, searchType, searchSlot, setBisList, bisList, acce
                     </div>
                     
                 </div>
-                <div className="itemInspector">
+                {/* <div className="itemInspector">
                     <h1>Item Name</h1>
                     <p>stat</p>
                     <p>stat</p>
                     <p>stat</p>
                     <p>stat</p>
-                </div>
+                </div> */}
             </div>
 
         </>

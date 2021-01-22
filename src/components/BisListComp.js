@@ -18,7 +18,7 @@ const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }
                 {/* {bisList.map((bisItem) =>{
                     return <Item item={bisItem} accessToken={accessToken} setBisList={setBisList} bisList={bisList}/>
                 })} */}
-                <div className="statsSummary">
+                {/* <div className="statsSummary">
                     <h1>Item Name</h1>
                     <p>stat</p>
                     <p>stat</p>
@@ -31,7 +31,7 @@ const BisListComp = ({bisList, setBisList, accessToken, gearObj, setGear, gear }
                     <p>stat</p>
                     <p>stat</p>
                     <p>stat</p>
-                </div>
+                </div> */}
             </div>
             
         </div>

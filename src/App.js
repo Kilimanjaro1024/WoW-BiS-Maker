@@ -10,7 +10,7 @@ import BlizzAPI from "blizzapi"
 
 
 function App() {
-  const {  REACT_APP_API, REACT_APP_SECRECT  } = process.env
+  const {  REACT_APP_API, REACT_APP_SECRECT , REACT_APP_TOKEN  } = process.env
   // console.log(REACT_APP_API)
   
 
@@ -44,7 +44,7 @@ function App() {
   const [bisList, setBisList] = React.useState([])
   const [gear, setGear] = React.useState(gearObj)
   // const [slot, setSlot] = React.useState(gear)
-  const [accessToken,setAccessToken] = React.useState("USBkx1v1a9B9pWd7tcthWLLHEotqIAAMwr")
+  const [accessToken,setAccessToken] = React.useState(REACT_APP_TOKEN)
 
   // React.useEffect(async () =>{
   //   const BnetApi = new BlizzAPI({ region:'us', clientId: REACT_APP_API, clientSecret: REACT_APP_SECRECT });
