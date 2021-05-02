@@ -8,9 +8,13 @@ import Nav from "./components/Nav.js"
 import React from "react"
 import BlizzAPI from "blizzapi"
 
+import axios from 'axios';
+
 
 function App() {
-  const {  REACT_APP_API, REACT_APP_SECRECT , REACT_APP_TOKEN  } = process.env
+  const url = "http://localhost:3000"  
+
+  const REACT_APP_TOKEN = "";
  
   const statsObj = {
     STAMINA: 0,
@@ -44,6 +48,18 @@ function App() {
   const [stats, setStats] = React.useState(statsObj)
   // const [slot, setSlot] = React.useState(gear)
   const [accessToken,setAccessToken] = React.useState(REACT_APP_TOKEN)
+
+  const getToken = (token) => {
+    axios.get(url).then((response) => {
+      
+      setAccessToken(response.data.message)
+    })
+  }
+
+  React.useEffect(async () => {
+    getToken();
+    
+  }, [])
 
   //#region generate Token
   // React.useEffect(async () =>{
