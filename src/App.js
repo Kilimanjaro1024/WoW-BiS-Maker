@@ -12,7 +12,7 @@ import axios from 'axios';
 
 
 function App() {
-  const url = "http://localhost:3000"  
+  const url = "https://wow-api-token-vendor.herokuapp.com/"  
 
   const REACT_APP_TOKEN = "";
  
